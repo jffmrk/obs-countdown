@@ -57,6 +57,11 @@
     echo $liveWorshipDate;
     echo "\n\n";
 
+    $shortDate = $startTime->format('M j, Y');
+    echo $shortDate;
+    echo "\n\n";
+    file_put_contents("counter-date.txt", $shortDate);
+
     $deadlineRealTS = $startTime->getTimestamp();
 
     $diffReal = $deadlineRealTS - time();
