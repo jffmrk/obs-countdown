@@ -39,7 +39,7 @@
         $now = new DateTime();
         $jsDeadline = $now->format('Y-m-d\T' . $DEFAULT_START . ':00O');
 	echo "USING DEFAULT:\n" . $jsDeadline . "\n\n";
-	sleep 1;
+	sleep(1);
     } else {
         $jsDeadline = $argv[1];
     }
