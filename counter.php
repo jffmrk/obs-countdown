@@ -1,7 +1,10 @@
 <?php
 
     // Find your timezone --> https://www.php.net/manual/en/timezones.php
-    date_default_timezone_set('America/Los_Angeles');
+    $DEFAULT_TZ = "America/Los_Angeles";
+    $DEFAULT_START = "09:15";
+
+    date_default_timezone_set($DEFAULT_TZ);
 
     function output($min, $sec) {
         $str = "";
@@ -33,10 +36,14 @@
 
     if ($argc <= 1) {
         usage();
-        exit;
+        $now = new DateTime();
+        $jsDeadline = $now->format('Y-m-d\T' . $DEFAULT_START . ':00O');
+	echo "USING DEFAULT:\n" . $jsDeadline . "\n\n";
+	sleep(1);
+    } else {
+        $jsDeadline = $argv[1];
     }
 
-    $jsDeadline = $argv[1];
     if (!isset($jsDeadline)) {
         usage();
         exit;
